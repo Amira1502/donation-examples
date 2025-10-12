@@ -1,13 +1,14 @@
 import React from "react";
 import DonationForm from "./DonationForm";
-import { useWalletSelector } from "@near-wallet-selector/react-hook";
+import { useNear } from '@/hooks/useNear';
+
 
 interface DonationBoxProps {
   setMyDonation: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function DonationBox({ setMyDonation }: DonationBoxProps) {
-  const { signedAccountId } = useWalletSelector();
+  const { signedAccountId } = useNear();
 
   return (
     <div className="card mt-4">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useWalletSelector } from "@near-wallet-selector/react-hook";
+import { useNear } from "@/hooks/useNear";
 import { DonationNearContract } from "@/config";
 import { utils } from "near-api-js";
 
@@ -12,7 +12,7 @@ interface DonationResponse {
 }
 
 const MyDonation = ({ myDonation }: MyDonationProps) => {
-  const { signedAccountId, viewFunction } = useWalletSelector();
+  const { signedAccountId, viewFunction } = useNear();
   const [donation, setDonation] = useState<number>(0);
 
   useEffect(() => {

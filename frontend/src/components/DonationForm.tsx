@@ -1,6 +1,6 @@
 import { utils } from "near-api-js";
 import { useState } from "react";
-import { useWalletSelector } from "@near-wallet-selector/react-hook";
+import { useNear } from "@/hooks/useNear";
 import { DonationNearContract } from "@/config";
 
 interface DonationFormProps {
@@ -8,7 +8,7 @@ interface DonationFormProps {
 }
 
 const DonationForm = ({ setMyDonation }: DonationFormProps) => {
-  const { callFunction } = useWalletSelector();
+  const { callFunction } = useNear();
   const [amount, setAmount] = useState<number>(0);
 
   const setDonation = async (usdAmount: number) => {

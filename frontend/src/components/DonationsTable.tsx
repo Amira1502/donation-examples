@@ -1,6 +1,6 @@
 import { utils } from "near-api-js";
 import { useEffect, useState } from "react";
-import { useWalletSelector } from "@near-wallet-selector/react-hook";
+import { useNear } from "@/hooks/useNear";
 import { DonationNearContract } from "@/config";
 
 interface Donation {
@@ -9,7 +9,7 @@ interface Donation {
 }
 
 export default function DonationsTable() {
-  const { signedAccountId, viewFunction } = useWalletSelector();
+  const { signedAccountId, viewFunction } = useNear();
   const [donations, setDonations] = useState<Donation[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(0);
